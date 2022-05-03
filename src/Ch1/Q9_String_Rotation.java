@@ -8,6 +8,8 @@ package Ch1;
  *  Given two strings. s1 and s2, write code to check
  *  if s2 is a rotation of s1 using only one call
  *  to isSubstring (e.g "waterbottle" is a rotation of "erbottlewat").
+ *  runtime : O(longer string length + shorter string length)
+ *  runtime : O(N)
  */
 
 public class Q9_String_Rotation {
