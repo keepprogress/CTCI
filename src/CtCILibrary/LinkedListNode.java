@@ -21,14 +21,14 @@ public class LinkedListNode {
         if (this == last) {
             last = n;
         }
-        if(n != null & n.prev != this) {
+        if(n != null & this!=n.prev) {
             n.setPrevious(this);
         }
     }
 
     public void setPrevious(LinkedListNode p) {
         this.prev = p;
-        if(p != null && p.next != this) {
+        if(p != null &&  this != p.next) {
             p.setNext(this);
         }
     }
