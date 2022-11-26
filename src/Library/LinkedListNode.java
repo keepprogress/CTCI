@@ -2,67 +2,53 @@ package Library;
 
 //create a class called LinkedListNode
 public class LinkedListNode {
-    //create a data field called data
+
+    public LinkedListNode next, prev, last;
+
     public int data;
-    //create a data field called next
-    public LinkedListNode next;
-    //create a data field called prev
-    public LinkedListNode prev;
-    //create a data field called last
-    public LinkedListNode last;
-    //create a constructor that takes in an integer and a LinkedListNode
+
     public LinkedListNode(int d, LinkedListNode n, LinkedListNode p) {
         //set the data field to the integer passed in
         this.data = d;
-        //set the next field to the LinkedListNode passed in
-        this.next = n;
-        //set the prev field to the LinkedListNode passed in
-        this.prev = p;
-        //set the last field to the LinkedListNode passed in
-        this.last = n;
+        setNext(n);
+        setPrevious(p);
     }
-    //create a constructor that takes in an integer
-    public LinkedListNode(int d) {
-        //set the data field to the integer passed in
-        this.data = d;
-        //set the next field to null
-        this.next = null;
-        //set the prev field to null
-        this.prev = null;
-        //set the last field to null
-        this.last = null;
-    }
-    //create a method called setNext that takes in a LinkedListNode
+
+    public LinkedListNode() {}
+
     public void setNext(LinkedListNode n) {
-        //set the next field to the LinkedListNode passed in
-        this.next = n;
-        //if the LinkedListNode passed in is not null and the next field is not the same as the next field of the LinkedListNode passed in
-        if(n != null && this!=n.prev) {
-            //set the next field of the LinkedListNode passed in to this
+        next = n;
+        if (this == last) {
+            last = n;
+        }
+        if (n != null
+                && n.prev != this) {
             n.setPrevious(this);
         }
-        //set the last field to the LinkedListNode passed in
-        this.last = n;
     }
-    //create a method called
+
     public void setPrevious(LinkedListNode p) {
-        //set the prev field to the LinkedListNode passed in
-        this.prev = p;
-        //if the LinkedListNode passed in is not null and the prev field is not the same as the prev field of the LinkedListNode passed in
-        if(p != null && this!=p.next) {
-            //set the prev field of the LinkedListNode passed in to this
+        prev = p;
+        if(p != null && p.next != this) {
             p.setNext(this);
         }
     }
 
-    @Override
-    public String toString() {
-        return "LinkedListNode{" +
-                "data=" + data +
-                ", next=" + next +
-                ", prev=" + prev +
-                ", last=" + last +
-                '}';
+    public LinkedListNode clone() {
+        LinkedListNode next2 = null;
+        if(next != null) {
+            next2 = next.clone();
+        }
+        LinkedListNode head2 = new LinkedListNode(data, next2, null);
+        return head2;
+    }
+
+    public String printForward() {
+        if (next != null) {
+            return data + "->" + next.printForward();
+        } else {
+            return ((Integer) data).toString();
+        }
     }
 }
 

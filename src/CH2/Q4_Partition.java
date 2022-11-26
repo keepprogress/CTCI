@@ -21,6 +21,7 @@ public class Q4_Partition {
         LinkedListNode current = head;
         while(current != null) {
             LinkedListNode next = current.next;
+//            current.next = null;
             if(current.data < partition) {
                 if(less == null) {
                     less = current;
@@ -92,27 +93,42 @@ public class Q4_Partition {
         }
     }
 
-    public static void main(String[] args) {
-        LinkedListNode head = new LinkedListNode(3, null, null);
-        head.next = new LinkedListNode(5, null, null);
-        head.next.prev = head;
-        head.next.next = new LinkedListNode(8, null, null);
-        head.next.next.prev = head.next;
-        head.next.next.next = new LinkedListNode(5, null, null);
-        head.next.next.next.prev = head.next.next;
-        head.next.next.next.next = new LinkedListNode(10, null, null);
-        head.next.next.next.next.prev = head.next.next.next;
-        head.next.next.next.next.next = new LinkedListNode(2, null, null);
-        head.next.next.next.next.next.prev = head.next.next.next.next;
-        head.next.next.next.next.next.next = new LinkedListNode(1, null, null);
-        head.next.next.next.next.next.next.prev = head.next.next.next.next.next;
+    public static LinkedListNode partition3(LinkedListNode node, int x) {
+        LinkedListNode head = node;
+        LinkedListNode tail = node;
 
-        LinkedListNode newNode = partition2(head, 5);
-
-        while (newNode != null) {
-            System.out.print(newNode.data + " ");
-            newNode = newNode.next;
+        while(node != null) {
+            LinkedListNode next = node.next;
+            if(node.data < x) {
+                node.next = head;
+                head = node;
+            } else {
+                tail.next = node;
+                tail = node;
+            }
+            node = next;
         }
+        tail.next = null;
+        return head;
+    }
 
+    public static LinkedListNode createLinkedList() {
+        /* Create linked list */
+        int[] vals = {3, 5, 8, 5, 10, 2, 1};
+        LinkedListNode head = new LinkedListNode(vals[0], null, null);
+        LinkedListNode current = head;
+        for (int i = 1; i < vals.length; i++) {
+            current = new LinkedListNode(vals[i], null, current);
+        }
+        return head;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(createLinkedList().printForward());
+
+        LinkedListNode H3 = partition3(createLinkedList(), 5);
+
+        System.out.println(H3.printForward());
     }
 }
