@@ -1,6 +1,7 @@
 package CH2;
 
-import CtCILibrary.LinkedListNode;
+
+import Library.LinkedListNode;
 
 public class Q2_Return_Kth_to_Last {
     /**

@@ -2,6 +2,8 @@ package CH2;
 
 import Library.LinkedListNode;
 
+import static CH2.Q5_Sum_Lists_Follow_Up.createLinkedList;
+
 public class Q4_Partition {
 
     //Write code to partition a linked list around a value x,
@@ -112,22 +114,13 @@ public class Q4_Partition {
         return head;
     }
 
-    public static LinkedListNode createLinkedList() {
-        /* Create linked list */
-        int[] vals = {3, 5, 8, 5, 10, 2, 1};
-        LinkedListNode head = new LinkedListNode(vals[0], null, null);
-        LinkedListNode current = head;
-        for (int i = 1; i < vals.length; i++) {
-            current = new LinkedListNode(vals[i], null, current);
-        }
-        return head;
-    }
-
     public static void main(String[] args) {
+        int[] vals = {3, 5, 8, 5, 10, 2, 1};
 
-        System.out.println(createLinkedList().printForward());
 
-        LinkedListNode H3 = partition3(createLinkedList(), 5);
+        System.out.println(createLinkedList(vals).printForward());
+
+        LinkedListNode H3 = partition3(createLinkedList(vals), 5);
 
         System.out.println(H3.printForward());
     }

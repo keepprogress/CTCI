@@ -1,6 +1,6 @@
 package CH2;
 
-import CtCILibrary.LinkedListNode;
+import Library.LinkedListNode;
 
 import java.util.HashSet;
 
