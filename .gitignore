@@ -1,5 +1,6 @@
-*.iml
+CTCI.iml
 .idea
 misc.xml
 module.xml
+out
 
