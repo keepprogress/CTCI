@@ -1,4 +1,4 @@
-package CH3;
+package CH3.Q1_Three_In_One;
 
 import Library.FullStackException;
 

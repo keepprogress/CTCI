@@ -1,16 +1,16 @@
-package CH3;
+package CH3.Q1_Three_In_One;
 
 import Library.FullStackException;
 
 import java.util.EmptyStackException;
 
-public class Q3_Three_In_One_Fixed_division {
+public class Q1_Three_In_One_Fixed_division {
     private int numberOfStacks = 3;
     private int stackCapacity;
     private int[] values;
     private int[] sizes;
 
-    public Q3_Three_In_One_Fixed_division(int stackSize) {
+    public Q1_Three_In_One_Fixed_division(int stackSize) {
         stackCapacity = stackSize;
         values = new int[stackSize * numberOfStacks];
         sizes = new int[numberOfStacks];
