@@ -10,10 +10,11 @@ public class Question {
         if(n.parent == null || n.right != null) {
             return leftMostChild(n.right);
         } else {
+            // go up until we're on left instead of right
             while(n.parent != null && n.parent.left != n) {
                 n = n.parent;
             }
-            return n;
+            return n.parent;
         }
     }
 
@@ -28,6 +29,7 @@ public class Question {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         TreeNode root = TreeNode.createMinimalBST(array);
+        TreeNode.printTree(root);
         for (int i = 0; i < array.length; i++) {
             TreeNode node = root.find(array[i]);
             TreeNode next = inorderSucc(node);
