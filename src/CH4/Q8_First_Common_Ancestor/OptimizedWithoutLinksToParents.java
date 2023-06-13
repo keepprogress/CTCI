@@ -54,3 +54,6 @@ public class OptimizedWithoutLinksToParents {
 //        最后，如果以上条件都不满足，说明在当前子树中没有找到p和q，那么返回非空的x.node或y.node（如果其中一个为空，则返回另一个），并将isAncestor标记为false。
 //
 //        因此，在代码中的if (y.isAncestor)语句中，如果在右子树中找到了最近公共祖先，那么y.isAncestor将为true，表示已经找到了最近公共祖先，所以直接返回结果y。这样就可以确保在找到最近公共祖先后，递归的过程会立即停止，避免不必要的继续搜索。
+
+//  如果當前節點 root 正在 q or q 那麼 同時 不滿足 x.node != null && y.node != null
+//  則代表有可能 root 是 p or q 之一，且另一個節點在 root的左邊或右邊 的子樹中
