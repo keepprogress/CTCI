@@ -41,4 +41,21 @@ public class Optimized {
             hashTable.put(key, newCount);
         }
     }
+
+    // 0  1  2  3  4  5  6  7  8
+    // 10 5  1  2  -1 -1 7  1  2
+    // 10 15 16 18 17 16 23 24 26
+
+    // runningSumOf7 = 24
+    // targetSum = 8
+    // sum = 24 - 8 = 16
+    // totalPaths = 2
+    // pathCount = { 16: 2 }
+    // 逐步放running sum 到 pathCount
+    // 用 runningSum - targetSum 得到 sum
+    // 用 sum 去 pathCount 找有沒有符合的
+    // 有則取出來 = totalPaths
+    // incrementHashTable邏輯 => 用來增加running sum 到 pathCount (現在的runnging sum 若存在則加上1，不存在則新增)
+    // 此算法只算到當前有幾條路徑
+    // 不會重算前面stack 算過的路徑數目
 }
