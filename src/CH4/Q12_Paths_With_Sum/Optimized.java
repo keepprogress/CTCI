@@ -55,7 +55,7 @@ public class Optimized {
     // 用 runningSum - targetSum 得到 sum
     // 用 sum 去 pathCount 找有沒有符合的
     // 有則取出來 = totalPaths
-    // incrementHashTable邏輯 => 用來增加running sum 到 pathCount (現在的runnging sum 若存在則加上1，不存在則新增)
+    // incrementHashTable邏輯 => 用來增加running sum 到 pathCount (現在的running sum 若存在則加上1，不存在則新增)
     // 此算法只算到當前有幾條路徑
     // 不會重算前面stack 算過的路徑數目
 }
